@@ -70,6 +70,14 @@ public class RecipeListActivity extends AppCompatActivity {
             isBound = true;
             List<String> ingredientList;
             Bundle extras = getIntent().getExtras();
+            try{
+                if(!extras.containsKey("ingredientList")){
+                    return;
+                }
+            }catch(NullPointerException e){
+                return;
+            }
+
             ingredientList = extras.getStringArrayList("ingredientList");
 
             // start Request to collect Recipes
